@@ -41,27 +41,36 @@ We are developing a smartphone application that measures, records, and presents 
 
 This project utilized a unique approach to heart rate monitoring by leveraging smartphone technology, namely the flashlight and camera.
 
-![Overview of the pipeline](images/pipeline.png)
-_Fig.0 - Abstract Pipeline for Heart Rate Detection_
+<p align="center">
+  <img src="images//pipeline.png"><br>
+  <em>Fig.0 - Abstract Pipeline for Heart Rate Detection.</em>
+</p>
 
 ### Video Recording and Luma Signal Extraction
 The initial phase of the process involved capturing a 15-second video using the phone's flashlight and camera through various types of pocket fabric such as cotton, denim, and polyester/nylon. Upon completion of the recording, the video was instantly transmitted to a Google Firebase Storage Bucket. The receipt of this video in the storage bucket triggered a Google Cloud Function, which undertook the task of back-end signal processing on the received video sample.
 
 Next, the extraction of luma (brightness) values from the video's Red-Green-Blue (RGB) values was carried out, isolating the red color values which correspond to changes in blood volume. The calculated luma values were then converted into a numerical series that represented a raw signal of blood volume changes.
 
-![Raw luma values](images/figure1.png)
-_Fig.1 - Raw luma values captured from a video recording in blue denim pockets._
+<p align="center">
+  <img src="images/figure1.png"><br>
+  <em>Fig.1 - Raw luma values captured from a video recording in blue denim pockets.</em>
+</p>
 
 ### High Pass Filtering and FFT Processing
+
 The extracted raw signal was further refined for analysis by applying a high-pass filter, which removed any upward-trending data and recentered the signal around zero.
 
-![Processed luma values](images/figure2.png)
-_Fig.3 - Processed signal of luma values using a high pass filter._
+<p align="center">
+  <img src="images/figure2.png"><br>
+  <em>Fig.3 - Processed signal of luma values using a high pass filter.</em>
+</p>
 
 Following the high-pass filtering, a Fast Fourier Transform (FFT) was applied to the filtered signal. The FFT process identified the peak frequency within the human heart rate range, providing an estimate of the heart rate for the duration of the video recording.
 
-![FFT processing](images/figure3.png)
-_Fig.4 - Processed signal of luma values of blue denim jeans pocket (top) and Fast Fourier Transform of heart rates of blue denim jeans pocket (bottom)._
+<p align="center">
+  <img src="images/figure3.png"><br>
+  <em>Fig.4 - Processed signal of luma values of blue denim jeans pocket (top) and Fast Fourier Transform of heart rates of blue denim jeans pocket (bottom).</em>
+</p>
 
 Finally, the estimated heart rate was compared to the average value reported by a pulse oximeter to verify the accuracy of the estimation.
 
