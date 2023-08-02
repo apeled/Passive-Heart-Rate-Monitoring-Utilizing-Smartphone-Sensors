@@ -1,4 +1,4 @@
-# Passive Heart Rate Monitoring Utilizing Smartphone Sensors
+# Healthy Pocket: Passive Heart Rate Monitoring Utilizing Smartphones
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -9,7 +9,6 @@
 - [Engineering Analysis and Test Data](#engineering-analysis-and-test-data)
 - [Conclusions](#conclusions)
 - [Future Work](#future-work)
-- [Contributions](#contributions)
 - [Credits](#credits)
 
 ## Project Overview
@@ -19,11 +18,11 @@ The Healthy Pocket Project aims to transform the way cardiovascular health monit
 
 |Project Directories | Brief Description|
 |--------------------|------------------|
-|[`/src`](./src)     | This directory contains the source code for the project, subdivided into `/android` for the Android application code and `/backend` for the backend server code. |
-|[`/test`](./images) | Contains screenshots and images to display on the README.md for the repository. |
+|[`/src`](./src)     | Contains the source code for the project, subdivided into `/android` for the Android application code and `/backend` for the backend server code. |
+|[`/images`](./images) | Contains screenshots and images to display on the README.md for the repository. |
 |[`/data`](./data)   | Contains data used for testing and development. |
 |[`/docs`](./docs)   | Contains documentation about the project, including design documents and user manuals. |
-|[`/tools`](./tools) | Contains various scripts and tools for building, deploying, and testing the project. |
+|[`/test`](./test)   | Contains various scripts and tools for building, deploying, and testing the project. |
 |`.gitignore`        | A file specifying patterns of files/directories to ignore in git operations. |
 |`LICENSE`           | This file contains the license under which the project is released. |
 |`README.md`         | This file contains detailed information about the project, its architecture, and its usage. |
@@ -51,29 +50,29 @@ The initial phase of the process involved capturing a 15-second video using the 
 Next, the extraction of luma (brightness) values from the video's Red-Green-Blue (RGB) values was carried out, isolating the red color values which correspond to changes in blood volume. The calculated luma values were then converted into a numerical series that represented a raw signal of blood volume changes.
 
 ![Raw luma values](images/figure1.png)
-_Figure 1: Raw luma values captured from a video recording in blue denim pockets._
+_Fig.1 - Raw luma values captured from a video recording in blue denim pockets._
 
 ### High Pass Filtering and FFT Processing
 The extracted raw signal was further refined for analysis by applying a high-pass filter, which removed any upward-trending data and recentered the signal around zero.
 
-![Processed luma values](images/figure3.png)
-_Figure 3: Processed signal of luma values using a high pass filter._
+![Processed luma values](images/figure2.png)
+_Fig.3 - Processed signal of luma values using a high pass filter._
 
 Following the high-pass filtering, a Fast Fourier Transform (FFT) was applied to the filtered signal. The FFT process identified the peak frequency within the human heart rate range, providing an estimate of the heart rate for the duration of the video recording.
 
-![FFT processing](images/figure4.png)
-_Figure 4: Processed signal of luma values of blue denim jeans pocket (top) and Fast Fourier Transform of heart rates of blue denim jeans pocket (bottom)._
+![FFT processing](images/figure3.png)
+_Fig.4 - Processed signal of luma values of blue denim jeans pocket (top) and Fast Fourier Transform of heart rates of blue denim jeans pocket (bottom)._
 
 Finally, the estimated heart rate was compared to the average value reported by a pulse oximeter to verify the accuracy of the estimation.
 
 ### Flutter Front-End Application
-The end user interacts with the system through a front-end application developed using Flutter. Currently, the application is only compatible with Android devices. It provides the user with an average HR display and the most recent HR measurements. An additional "video" tab facilitates manual recording for immediate heart rate readings as opposed to the regular passive recordings. Furthermore, a "profile" tab is available to display and update the user’s personal information.
+The end user interacts with the system through a front-end application developed using Flutter. Currently, the application is only compatible with Android devices. It provides the user with an average HR display and the most recent HR measurements. An additional "video" tab facilitates manual recording for immediate heart rate readings as opposed to regular passive recordings. Furthermore, a "profile" tab is available to display and update the user’s personal information.
 
 <table>
   <tr>
-    <td align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzVrNTl1emVuZG8yZHJoNGc2N3JkbDZuamp6NHZndDZwNmQ5eHZydyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KE0Rpk0Yqqi6uvWSDM/giphy.gif" width="200"/><br>Fig.1 - Home screen of the application with an interactive chart.</td>
-    <td align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHI4OHRqaGhpMzMzbW5ycjEyNTF1NXdseGR1bWFnOTVwcnQ1YWVieSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DZndhvBGSDRKwAGOvc/giphy.gif" width="200"/><br>Fig.2 - Recording screen and pop-up heart rate result after processing.</td>
-    <td align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3NvNnF2bGtocTdod2U3MGI3eTJvYjhkODdnaHhqaHIwaDM0dHZuaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ukTjTuHjAgQj5J5NFp/giphy.gif" width="200"/><br>Fig.3 - Profile screen where user can alter their personal information.</td>
+    <td align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzVrNTl1emVuZG8yZHJoNGc2N3JkbDZuamp6NHZndDZwNmQ5eHZydyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KE0Rpk0Yqqi6uvWSDM/giphy.gif" width="200"/><br>Fig.4 - Home screen of the application with an interactive chart.</td>
+    <td align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHI4OHRqaGhpMzMzbW5ycjEyNTF1NXdseGR1bWFnOTVwcnQ1YWVieSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DZndhvBGSDRKwAGOvc/giphy.gif" width="200"/><br>Fig.5 - Recording screen and pop-up heart rate result after processing.</td>
+    <td align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3NvNnF2bGtocTdod2U3MGI3eTJvYjhkODdnaHhqaHIwaDM0dHZuaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ukTjTuHjAgQj5J5NFp/giphy.gif" width="200"/><br>Fig.6 - Profile screen where user can alter their personal information.</td>
   </tr>
 </table>
 
@@ -85,9 +84,6 @@ Our project has demonstrated potential in passive heart rate monitoring using sm
 
 ## Future Work
 In future iterations, we aim to improve our signal processing algorithms for higher accuracy, incorporate multiple peak predictions in the FFT analysis, and develop metrics for heart rate variability and stress levels. Additionally, we plan to extend the application to iOS devices and enable passive heart rate detection and recording while reducing battery usage.
-
-## Contributions
-We welcome any contributions to the Healthy Pocket Project. Whether it's reporting a bug, proposing new features, or helping with code, all contributions are greatly appreciated. Please see our [Contribution Guidelines] for more details.
 
 ## Credits
 This project was made possible thanks to the hard work and dedication of our team members:
