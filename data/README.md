@@ -1,7 +1,5 @@
 # The `\data` Directory
 
-# Data Directory
-
 This directory contains several video samples utilized in our project.
 
 ## Naming Convention
