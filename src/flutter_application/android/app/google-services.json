@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "425596948227",
+    "firebase_url": "https://healthy-pocket-ce565-default-rtdb.firebaseio.com",
+    "project_id": "healthy-pocket-ce565",
+    "storage_bucket": "healthy-pocket-ce565.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425596948227:android:adb0e0de108d1532fde336",
+        "android_client_info": {
+          "package_name": "com.example.base_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425596948227-05r2ev5fohibr52sv4hvim35tkp3rlu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_pSJ9rNtyMpXmYUE41kj17C20hfuocnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425596948227-05r2ev5fohibr52sv4hvim35tkp3rlu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
