@@ -62,14 +62,14 @@ The extracted raw signal was further refined for analysis by applying a high-pas
 
 <p align="center">
   <img src="images/figure2.png"><br>
-  <em>Fig.3 - Processed signal of luma values using a high pass filter.</em>
+  <em>Fig.2 - Processed signal of luma values using a high pass filter.</em>
 </p>
 
 Following the high-pass filtering, a Fast Fourier Transform (FFT) was applied to the filtered signal. The FFT process identified the peak frequency within the human heart rate range, providing an estimate of the heart rate for the duration of the video recording.
 
 <p align="center">
   <img src="images/figure3.png"><br>
-  <em>Fig.4 - Processed signal of luma values of blue denim jeans pocket (top) and Fast Fourier Transform of heart rates of blue denim jeans pocket (bottom).</em>
+  <em>Fig.3 - Processed signal of luma values of blue denim jeans pocket (top) and Fast Fourier Transform of heart rates of blue denim jeans pocket (bottom).</em>
 </p>
 
 Finally, the estimated heart rate was compared to the average value reported by a pulse oximeter to verify the accuracy of the estimation.
